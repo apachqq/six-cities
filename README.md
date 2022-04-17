@@ -1,34 +1,24 @@
-#### 1. Не коммитьте ничего самостоятельно в `master` вашего репозитория
+# project
 
-Это помешает вам аккуратно обновлять ваш репозиторий, могут возникнуть конфликты.
-
-#### 2. Прежде чем приступать к новому заданию, обновите `master`
-
-Обновить свой репозиторий из репозитория Академии можно так:
-
+## Project setup
 ```
-# В вашей локальной копии переключитесь в ветку master
-git checkout master
-
-# Заберите изменения из репозитория vue-project
-git pull vue master
-
-# Отправьте изменения в ваш форк на Гитхабе
-git push
+npm install
 ```
 
-¹ В `vue` должна быть ссылка на репозиторий vue-project. Если его там нет, добавьте:
-
+### Compiles and hot-reloads for development
 ```
-git remote add vue git@github.com:DanilKokorin/vue-project.git
-```
-
-Когда вы обновили `master`, создайте ветку для нового задания:
-
-```
-git checkout -b module2-task1
+npm run serve
 ```
 
-`module2-task1` — это название ветки. Под описанием каждого задания в интерфейсе интенсива для вас будет указано правильное название ветки.
+### Compiles and minifies for production
+```
+npm run build
+```
 
---
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
