@@ -1,4 +1,4 @@
-# project
+# six-cities
 
 ## Project setup
 ```
