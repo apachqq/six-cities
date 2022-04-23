@@ -23,7 +23,7 @@
         </div>
       </div>
       <h2 class="place-card__name">
-        <a href="#">{{ offer.title }}</a>
+        <a @click.prevent="$router.push(`/offer/${offer.id}`)">{{ offer.title }}</a>
       </h2>
       <p class="place-card__type">{{ offer.type }}</p>
     </div>

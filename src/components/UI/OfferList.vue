@@ -3,7 +3,6 @@
     v-for="offer in offers"
     :key="offer.id"
     :offer="offer"
-    @click.prevent="this.$router.push(`/offer/${offer.id}`)"
   ></card-item>
 </template>
 

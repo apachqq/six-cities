@@ -1,13 +1,10 @@
 <template>
   <div class="page page--gray page--login">
+
     <header class="header">
       <div class="container">
         <div class="header__wrapper">
-          <div class="header__left">
-            <a class="header__logo-link" href="main.html" @click.prevent="this.$router.push('/')">
-              <img class="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41">
-            </a>
-          </div>
+          <the-logo-left></the-logo-left>
         </div>
       </div>
     </header>
@@ -43,20 +40,22 @@
 
 <script>
 import index from '@/store'
+import TheLogoLeft from '@/components/UI/TheLogoLeft'
 
 export default {
-  provide () {
-    return {
-      email: 'email'
-    }
-  },
-  inject: ['login'],
   data () {
     return {
       email: '',
       password: ''
     }
   },
+  provide () {
+    return {
+      email: 'email'
+    }
+  },
+  inject: ['login'],
+  components: { TheLogoLeft },
   computed: {
     isValid () {
       return this.email !== '' && this.password !== ''
