@@ -14,7 +14,7 @@
                 <a class="header__nav-link header__nav-link--profile" href="#">
                   <div class="header__avatar-wrapper user__avatar-wrapper">
                   </div>
-                  <span class="header__user-name user__name"></span>
+                  <span class="header__user-name user__name">{{ email }}</span>
                 </a>
               </li>
               <li class="header__nav-item">
@@ -70,7 +70,7 @@
         <div class="cities__places-container container">
           <section class="cities__places places">
             <h2 class="visually-hidden">Places</h2>
-            <b class="places__found">312 places to stay in Amsterdam</b>
+            <b class="places__found">{{ offers.length }} places to stay in {{ city }}</b>
             <form class="places__sorting" action="#" method="get">
               <span class="places__sorting-caption">Sort by</span>
               <span class="places__sorting-type" tabindex="0">
@@ -88,51 +88,7 @@
             </form>
             <div class="cities__places-list places__list tabs__content">
 
-              <card-item
-                title="Beautiful &amp; luxurious apartment at great location"
-                type="Apartment"
-                price="120"
-                picture="img/apartment-01.jpg"
-                :premium="true"
-                raiting="4"
-              ></card-item>
-
-              <card-item
-                title="Wood and stone place"
-                type="Private room"
-                price="132"
-                picture="img/room.jpg"
-                :premium="false"
-                raiting="4"
-              ></card-item>
-
-              <card-item
-                title="Canal View Prinsengracht"
-                type="Apartment"
-                price="132"
-                picture="img/apartment-02.jpg"
-                :premium="false"
-                raiting="4"
-              ></card-item>
-
-              <card-item
-                title="Nice, cozy, warm big bed apartment"
-                type="Apartment"
-                price="180"
-                picture="img/apartment-03.jpg"
-                :premium="true"
-                raiting="5"
-              ></card-item>
-
-              <card-item
-                title="Wood and stone place"
-                type="Private room"
-                price="80"
-                picture="img/room.jpg"
-                :premium="false"
-                raiting="4"
-              ></card-item>
-
+              <offer-list :offers="offers"></offer-list>
             </div>
           </section>
           <div class="cities__right-section">
@@ -145,11 +101,20 @@
 </template>
 
 <script>
-import CardItem from '@/components/UI/CardItem'
+import OfferList from '@/components/UI/OfferList'
+import { offers } from '@/mocks/offers'
+import index from '@/store'
 
 export default {
   inject: ['logout'],
-  components: { CardItem }
+  data () {
+    return {
+      offers: offers,
+      email: index.state.email,
+      city: index.state.city
+    }
+  },
+  components: { OfferList }
 }
 </script>
 

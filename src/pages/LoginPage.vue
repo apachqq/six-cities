@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import index from '@/store'
+
 export default {
   provide () {
     return {
@@ -63,6 +65,7 @@ export default {
   methods: {
     submit () {
       if (this.isValid) {
+        index.state.email = this.email
         this.login()
       }
     }

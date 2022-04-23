@@ -1,18 +1,18 @@
 <template>
   <article class="cities__place-card place-card">
-    <div class="place-card__mark" v-if="premium">
+    <div class="place-card__mark" v-if="offer.premium">
       <span>Premium</span>
     </div>
     <div class="cities__image-wrapper place-card__image-wrapper">
       <a href="#">
-        <img class="place-card__image" :src="picture" width="260" height="200"
+        <img class="place-card__image" :src="offer.picture" width="260" height="200"
              alt="Place image">
       </a>
     </div>
     <div class="place-card__info">
       <div class="place-card__price-wrapper">
         <div class="place-card__price">
-          <b class="place-card__price-value">&euro;{{ price }}</b>
+          <b class="place-card__price-value">&euro;{{ offer.price }}</b>
           <span class="place-card__price-text">&#47;&nbsp;night</span>
         </div>
       </div>
@@ -23,9 +23,9 @@
         </div>
       </div>
       <h2 class="place-card__name">
-        <a href="#">{{ title }}</a>
+        <a href="#">{{ offer.title }}</a>
       </h2>
-      <p class="place-card__type">{{ type }}</p>
+      <p class="place-card__type">{{ offer.type }}</p>
     </div>
   </article>
 </template>
@@ -34,27 +34,12 @@
 export default {
   data () {
     return {
-      stars: 'width: ' + this.raiting * 20 + '%'
+      stars: 'width: ' + this.offer.rating * 20 + '%'
     }
   },
   props: {
-    title: {
-      type: String
-    },
-    type: {
-      type: String
-    },
-    price: {
-      type: Number
-    },
-    picture: {
-      type: String
-    },
-    premium: {
-      type: Boolean
-    },
-    raiting: {
-      type: Number
+    offer: {
+      type: Object
     }
   }
 }

@@ -2,7 +2,9 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    isAuth: false
+    isAuth: true,
+    email: '',
+    city: 'Amsterdam'
   },
   mutations: {
   },
