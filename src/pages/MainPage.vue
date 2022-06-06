@@ -85,22 +85,22 @@ export default {
   },
   methods: {
     lowToHigh () {
-      this.offers.sort((offer1, offer2) => {
+      this.offers = this.offers.sort((offer1, offer2) => {
         return offer1.price - offer2.price
       })
     },
     highToLow () {
-      this.offers.sort((offer1, offer2) => {
+      this.offers = this.offers.sort((offer1, offer2) => {
         return offer2.price - offer1.price
       })
     },
     topRatedFirst () {
-      this.offers.sort((offer1, offer2) => {
+      this.offers = this.offers.sort((offer1, offer2) => {
         return offer2.rating - offer1.rating
       })
     },
     name () {
-      this.offers.sort((a, b) => a.title.localeCompare(b.title))
+      this.offers = this.offers.sort((a, b) => a.title.localeCompare(b.title))
     }
   },
   components: { OfferList, TheSorting }
