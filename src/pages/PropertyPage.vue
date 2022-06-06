@@ -316,8 +316,14 @@
 </template>
 
 <script>
-export default {
+import { offers } from '@/mocks/offers'
 
+export default {
+  data () {
+    return {
+      offers: offers
+    }
+  }
 }
 </script>
 

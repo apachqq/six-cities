@@ -47,7 +47,10 @@
             <h2 class="visually-hidden">Places</h2>
             <b class="places__found">{{ offers.length }} places to stay in {{ city }}</b>
 
-            <the-sorting :offers="offers"></the-sorting>
+            <the-sorting
+              @lowToHigh="lowToHigh"
+              @highToLow="highToLow"
+            ></the-sorting>
 
             <div class="cities__places-list places__list tabs__content">
 
@@ -76,6 +79,18 @@ export default {
     return {
       offers: offers,
       city: index.state.city
+    }
+  },
+  methods: {
+    lowToHigh () {
+      this.offers.sort((offer1, offer2) => {
+        return offer1.price - offer2.price
+      })
+    },
+    highToLow () {
+      this.offers.sort((offer1, offer2) => {
+        return offer2.price - offer1.price
+      })
     }
   },
   components: { OfferList, TheSorting }
