@@ -50,6 +50,8 @@
             <the-sorting
               @lowToHigh="lowToHigh"
               @highToLow="highToLow"
+              @topRatedFirst="topRatedFirst"
+              @name="name"
             ></the-sorting>
 
             <div class="cities__places-list places__list tabs__content">
@@ -91,6 +93,14 @@ export default {
       this.offers.sort((offer1, offer2) => {
         return offer2.price - offer1.price
       })
+    },
+    topRatedFirst () {
+      this.offers.sort((offer1, offer2) => {
+        return offer2.rating - offer1.rating
+      })
+    },
+    name () {
+      this.offers.sort((a, b) => a.title.localeCompare(b.title))
     }
   },
   components: { OfferList, TheSorting }
